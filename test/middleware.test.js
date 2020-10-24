@@ -55,7 +55,7 @@ describe('middleware function check', function () {
   });
 
   it("should pass rate limiter check", async () => {
-    // redis stub chain; Only trigger callback error in execStub
+    // redis stub chain
     const execStub = sinon.stub().callsArgWith(0, null, [[null, null], [null, threshold - 1], [null, 60]]);
     const ttlStub = sinon.stub().returns({ exec: execStub });
     const incrStub = sinon.stub().returns({ ttl: ttlStub });
